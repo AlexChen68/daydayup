@@ -1,0 +1,4 @@
+url: jdbc:mysql://1.15.21.233:3306/zeus?useSSL=false&autoReconnect=true&characterEncoding=utf8
+driver: com.mysql.cj.jdbc.Driver
+username: zeus
+password: 1qaz@wsx?S
