@@ -18,7 +18,7 @@ public class HelloController implements Controller {
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.println("HelloController param:" + request.getParameter("param"));
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("msg", "hello world");
+        modelAndView.addObject("msg", request.getParameter("param"));
         modelAndView.setViewName("hello");
         return modelAndView;
     }

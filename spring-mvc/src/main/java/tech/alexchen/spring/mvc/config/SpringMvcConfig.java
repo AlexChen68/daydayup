@@ -3,12 +3,11 @@ package tech.alexchen.spring.mvc.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import tech.alexchen.spring.mvc.controller.HelloController;
+import tech.alexchen.spring.mvc.intercaptor.HelloInterceptor;
 
 /**
  * 1. 开启 @EnableWebMvc：将此注解添加到@Configuration类会从WebMvcConfigurationSupport导入 Spring MVC 配置（仅一个配置类添加）；
@@ -42,6 +41,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
+        WebMvcConfigurer.super.configureViewResolvers(registry);
 //        registry.jsp("/WEB-INF/jsp/", ".jsp");
         registry.viewResolver(internalResourceViewResolver());
     }
@@ -51,10 +51,24 @@ public class SpringMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        WebMvcConfigurer.super.addCorsMappings(registry);
         registry.addMapping("/cors/**")
                 .allowedHeaders("*")
                 .allowedMethods("POST","GET")
                 .allowedOrigins("*");
     }
 
+    /**
+     * 配置拦截器
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        WebMvcConfigurer.super.addInterceptors(registry);
+        registry.addInterceptor(new HelloInterceptor()).addPathPatterns("/hello");
+    }
+
+    @Bean("multipartResolver")
+    public CommonsMultipartResolver multipartResolver() {
+        return new CommonsMultipartResolver();
+    }
 }
