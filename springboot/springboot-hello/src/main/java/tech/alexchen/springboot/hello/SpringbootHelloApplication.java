@@ -1,13 +1,13 @@
-package tech.alexchen.springboot;
+package tech.alexchen.springboot.hello;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class SpringbootHelloApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(SpringbootHelloApplication.class, args);
 	}
 
 }

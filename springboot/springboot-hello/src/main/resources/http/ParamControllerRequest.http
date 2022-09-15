@@ -1,0 +1,8 @@
+###
+POST http://localhost:8080/param/requestBody
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "alexchen"
+}
