@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 用来设置上下文名称，每个 logger 都关联到 logger 上下文，默认上下文名称为 default。但可以使用 < contextName > 设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改。 -->
+    <contextName>SpringBootLogback</contextName>
+
+    <!-- 用来定义变量值，它有两个属性 name 和 value，通过 < property > 定义的值会被插入到 logger 上下文中，可以使 “${}” 来使用变量 -->
+    <property name="pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+
+    <!-- 获取时间戳字符串，他有两个属性 key 和 datePattern; datePattern: 设置将当前时间（解析配置文件的时间）转换为字符串的模式，遵循 java.txt.SimpleDateFormat 的格式-->
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+
+    <!-- 负责写日志的组件，它有两个必要属性 name 和 class。name 指定 appender 名称，class 指定 appender 的全限定名 -->
+    <!-- 更多 appender 见 https://github.com/YLongo/logback-chinese-manual/blob/master/04%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9AAppenders.md#%E7%AC%AC%E5%9B%9B%E7%AB%A0appenders -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <file>log/output.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>log/output.log.%i</fileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>1MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!-- additivity="false" 表示不继承父 Logger 的 appender -->
+    <logger name="tech.alexchen.springboot.logback.controller" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <!-- <appender-ref ref="FILE" /> -->
+    </root>
+</configuration>

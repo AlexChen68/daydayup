@@ -1,4 +1,4 @@
-package tech.alexchen.springboot.log.Bean;
+package tech.alexchen.springboot.hello.Bean;
 
 /**
  * @author alexchen

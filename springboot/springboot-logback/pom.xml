@@ -9,10 +9,10 @@
 	</parent>
 
 	<groupId>tech.alexchen</groupId>
-	<artifactId>springboot-log</artifactId>
+	<artifactId>springboot-logback</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>springboot-log</name>
-	<description>springboot-log</description>
+	<name>springboot-logback</name>
+	<description>springboot-logback</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -23,11 +23,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.11</version>
+			<!-- <scope>runtime</scope> -->
+			<!-- <optional>true</optional> -->
 		</dependency>
 	</dependencies>
 

@@ -1,0 +1,10 @@
+logging:
+  level:
+    root: info
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: springboot-logback

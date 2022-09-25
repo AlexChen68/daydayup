@@ -1,7 +1,7 @@
-package tech.alexchen.springboot.log.controller;
+package tech.alexchen.springboot.hello.controller;
 
 import org.springframework.web.bind.annotation.*;
-import tech.alexchen.springboot.log.Bean.User;
+import tech.alexchen.springboot.hello.Bean.User;
 
 /**
  * @author alexchen
