@@ -1,4 +1,4 @@
-package tech.alexchen.springboot.hello.Bean;
+package tech.alexchen.springboot.log.Bean;
 
 /**
  * @author alexchen
@@ -6,6 +6,8 @@ package tech.alexchen.springboot.hello.Bean;
 public class User {
     Integer id;
     String name;
+
+    public User() {}
 
     public User(Integer id, String name) {
         this.id = id;

@@ -9,10 +9,10 @@
 	</parent>
 
 	<groupId>tech.alexchen</groupId>
-	<artifactId>springboot-hello</artifactId>
+	<artifactId>springboot-log</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>springboot-hello</name>
-	<description>springboot-hello</description>
+	<name>springboot-log</name>
+	<description>springboot-log</description>
 
 	<properties>
 		<java.version>1.8</java.version>

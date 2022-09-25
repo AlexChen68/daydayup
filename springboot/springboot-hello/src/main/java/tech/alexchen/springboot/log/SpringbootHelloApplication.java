@@ -1,4 +1,4 @@
-package tech.alexchen.springboot.hello;
+package tech.alexchen.springboot.log;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
