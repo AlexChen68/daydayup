@@ -1,0 +1,53 @@
+POST http://localhost:8080/user/add1
+Content-Type: application/json
+
+{
+  "userId": 15,
+  "userName": "alex",
+  "gender": 1,
+  "age": 99,
+  "phone": "1831111222",
+  "email": "alexchen.tech@gamil.com"
+}
+
+###
+
+POST http://localhost:8080/user/add2
+Content-Type: application/json
+
+{
+  "userId": 15,
+  "userName": "alex",
+  "gender": 1,
+  "age": 99,
+  "phone": "1831111222",
+  "email": "alexchen.tech@gamil.com"
+}
+
+###
+
+POST http://localhost:8080/user/group/add
+Content-Type: application/json
+
+{
+"userId": 15,
+"userName": "alex",
+"gender": 3,
+"age": 59,
+"phone": "188888888881",
+"email": "alexchen.tech@gamil.com"
+}
+
+###
+
+POST http://localhost:8080/user/group/update
+Content-Type: application/json
+
+{
+  "userId": null,
+  "userName": "alex",
+  "gender": 3,
+  "age": 59,
+  "phone": "18888888888",
+  "email": "alexchen.tech@gamil.com"
+}
