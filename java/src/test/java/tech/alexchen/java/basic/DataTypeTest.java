@@ -1,23 +1,17 @@
 package tech.alexchen.java.basic;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * 八个基本类型:
- * <p>
- * boolean/1
- * byte/8
- * char/16
- * short/16
- * int/32
- * float/32
- * long/64
- * double/64
- *
- * @author AlexChen
- * @date 2022-06-12 15:12
+ * @author alexchen
  */
 public class DataTypeTest {
 
-    public static void main(String[] args) {
+    /**
+     * 缓存池
+     */
+    @Test
+    void cachePool() {
         Integer a = 127;
         Integer b = 127;
         System.out.println(a == b);
@@ -32,5 +26,24 @@ public class DataTypeTest {
         Integer z = Integer.valueOf(127);
         Integer k = Integer.valueOf(127);
         System.out.println(z == k);   // true
+    }
+
+    /**
+     *  int 转 char
+     */
+    @Test
+    void intToChar() {
+        int a = 6500;
+        System.out.println((char)a);
+    }
+
+    /**
+     * char 转 int
+     */
+    @Test
+    void charToInt() {
+        // 自动使用 A 的 ASCII 赋值给 a
+        int a = 'A';
+        System.out.println(a);
     }
 }
