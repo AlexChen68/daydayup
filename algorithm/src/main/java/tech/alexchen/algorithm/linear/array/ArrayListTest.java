@@ -64,6 +64,8 @@ public class ArrayListTest {
 
         // 此处，在 JDK8 和 JDK9+ 表现不同，前者会报 ArrayStoreException 异常，后者不会。
         array[0] = new Object();
+
+        list.toArray(new Integer[]{});
     }
 
 }

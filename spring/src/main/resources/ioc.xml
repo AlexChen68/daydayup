@@ -14,16 +14,16 @@
     <!-- 扫描包 -->
     <!-- <context:component-scan base-package="tech.alexchen.spring" /> -->
 
-    <bean id="user" class="tech.alexchen.spring.ioc.bean.SysUser">
+    <bean id="user" class="tech.alexchen.spring.core.ioc.bean.SysUser">
         <property name="tenantId" value="1"/>
     </bean>
-    <bean id="dept" class="tech.alexchen.spring.ioc.bean.SysDept"/>
-    <bean id="userDao" class="tech.alexchen.spring.ioc.bean.SysUserDaoImpl"/>
-    <bean id="userService" class="tech.alexchen.spring.ioc.bean.SysUserServiceImpl">
+    <bean id="dept" class="tech.alexchen.spring.core.ioc.bean.SysDept"/>
+    <bean id="userDao" class="tech.alexchen.spring.core.ioc.bean.SysUserDaoImpl"/>
+    <bean id="userService" class="tech.alexchen.spring.core.ioc.bean.SysUserServiceImpl">
         <!-- 属性注入 -->
         <property name="userDao" ref="userDao"/>
     </bean>
-    <bean id="otherUserService" class="tech.alexchen.spring.ioc.bean.SysUserServiceImpl">
+    <bean id="otherUserService" class="tech.alexchen.spring.core.ioc.bean.SysUserServiceImpl">
         <!-- 构造器注入 -->
         <constructor-arg name="userDao" ref="userDao"/>
     </bean>

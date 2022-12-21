@@ -15,7 +15,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
-    <spring.version>5.3.22</spring.version>
+    <spring.version>5.3.23</spring.version>
     <servlet-api.version>2.5</servlet-api.version>
     <jsp-api.version>2.2</jsp-api.version>
     <commons-fileupload.version>1.4</commons-fileupload.version>
