@@ -2,13 +2,19 @@ package tech.alexchen.java.basic;
 
 import cn.hutool.core.util.StrUtil;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author AlexChen
  * @date 2022-06-12 14:22
  */
-public class StringTest {
-
+public class StringDemo {
     public static void main(String[] args) {
+        firstUniqChar("leetcode");
+    }
+
+    public static void stringPool() {
         // StringPool
         String s1 = "AB";
         String s2 = "A" + "B";
@@ -40,7 +46,19 @@ public class StringTest {
 
     public static void stringBufferAndStringBuilder() {
         StringBuilder stringBuilder = new StringBuilder("hello world");
+    }
 
-
+    public static int firstUniqChar(String s) {
+        Map<Character, Integer> count = new HashMap();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            count.put(ch, count.getOrDefault(ch, 0) + 1);
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (count.get(s.charAt(i)) == 1) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

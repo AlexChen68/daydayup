@@ -4,7 +4,7 @@ package tech.alexchen.java.basic;
  * @author AlexChen
  * @date 2022-06-12 15:04
  */
-public class ArrayTest {
+public class ArrayDemo {
 
     public static void main(String[] args) {
         int[] arr1 = new int[0];
