@@ -11,22 +11,19 @@ import java.util.concurrent.TimeUnit;
  */
 public class HasGlobalTimeoutTest {
 
-    public static String log;
-
+//
     private final CountDownLatch latch = new CountDownLatch(1);
 
     @Rule
-    public Timeout globalTimeout = Timeout.seconds(3); // 10 seconds max per method tested
+    public Timeout globalTimeout = Timeout.seconds(3); // 3 seconds max per method tested
 
     @Test
     public void testSleepForTooLong() throws Exception {
-        log += "ran1";
-        TimeUnit.SECONDS.sleep(5); // sleep for 100 seconds
+        TimeUnit.SECONDS.sleep(5); // sleep for 5 seconds
     }
 
     @Test
     public void testBlockForever() throws Exception {
-        log += "ran2";
         latch.await(); // will block
     }
 
