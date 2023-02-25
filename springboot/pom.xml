@@ -13,6 +13,7 @@
         <module>springboot-swagger</module>
         <module>springboot-validation</module>
         <module>springboot-cache</module>
+        <module>springboot-security</module>
     </modules>
     <packaging>pom</packaging>
 
