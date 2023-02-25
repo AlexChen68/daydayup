@@ -8,7 +8,11 @@
     <artifactId>springboot</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>springboot-hello</module>
+        <module>springboot-logback</module>
+        <module>springboot-swagger</module>
         <module>springboot-validation</module>
+        <module>springboot-cache</module>
     </modules>
     <packaging>pom</packaging>
 
