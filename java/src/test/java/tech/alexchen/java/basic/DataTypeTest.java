@@ -14,15 +14,16 @@ public class DataTypeTest {
     void cachePool() {
         Integer a = 127;
         Integer b = 127;
-        System.out.println(a == b);
+        System.out.println(a == b); // true
 
         Integer c = 128;
         Integer d = 128;
-        System.out.println(c == d);
+        System.out.println(c == d); // false
 
         Integer x = new Integer(127);
         Integer y = new Integer(127);
         System.out.println(x == y);    // false
+
         Integer z = Integer.valueOf(127);
         Integer k = Integer.valueOf(127);
         System.out.println(z == k);   // true
