@@ -8,11 +8,11 @@ package tech.alexchen.designpattern.structural.adapter;
  * @author AlexChen
  * @date 2022-06-08 04:34
  */
-public abstract class DefaultAdapter implements Target {
+public abstract class AbstractAdapter implements Target {
 
     protected Adaptee adaptee;
 
-    public DefaultAdapter(Adaptee adaptee) {
+    public AbstractAdapter(Adaptee adaptee) {
         this.adaptee = adaptee;
     }
 

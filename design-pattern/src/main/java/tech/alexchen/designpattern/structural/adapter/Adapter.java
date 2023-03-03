@@ -10,7 +10,7 @@ import java.util.List;
  * @author AlexChen
  * @date 2022-06-08 02:56
  */
-public class Adapter extends DefaultAdapter {
+public class Adapter extends AbstractAdapter {
 
     public Adapter(Adaptee adaptee) {
         super(adaptee);
