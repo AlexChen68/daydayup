@@ -3,7 +3,7 @@ package tech.alexchen.designpattern.structural.proxy;
 /**
  * @author alexchen
  */
-public class StaticProxy implements Subject{
+public class StaticProxy implements Subject {
 
     private Subject subject;
 

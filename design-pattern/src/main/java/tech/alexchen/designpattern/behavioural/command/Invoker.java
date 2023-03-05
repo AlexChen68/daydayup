@@ -1,0 +1,18 @@
+package tech.alexchen.designpattern.behavioural.command;
+
+/**
+ * @author alexchen
+ * @date 2023/3/5
+ */
+public class Invoker {
+
+    private Command command;
+
+    public Invoker(Command command) {
+        this.command = command;
+    }
+
+    public void call() {
+        command.execute();
+    }
+}
