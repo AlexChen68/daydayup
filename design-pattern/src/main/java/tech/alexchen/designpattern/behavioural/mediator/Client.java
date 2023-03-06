@@ -1,0 +1,19 @@
+package tech.alexchen.designpattern.behavioural.mediator;
+
+import java.util.concurrent.Executor;
+
+/**
+ * @author alexchen
+ * @date 2023/3/6
+ */
+public class Client {
+
+    public static void main(String[] args) {
+        Mediator mediator = new ConcreteMediator();
+        Alarm alarm = new Alarm(mediator);
+        CoffeePot coffeePot = new CoffeePot(mediator);
+
+        mediator.register(coffeePot);
+        alarm.onEvent("alarm: ding ding ding!");
+    }
+}
