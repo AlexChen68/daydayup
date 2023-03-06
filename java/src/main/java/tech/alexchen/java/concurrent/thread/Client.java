@@ -1,6 +1,7 @@
 package tech.alexchen.java.concurrent.thread;
 
 import cn.hutool.core.util.StrUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -21,9 +22,12 @@ public class Client {
         callableThread();
     }
 
+    private void a() {
+    }
+
     public static void concreteThread() {
         // 方式一
-        ConcreteThread concreteThread = new ConcreteThread();
+        ConcreteThread concreteThread = new ConcreteThread("");
         // 设置线程名称
         concreteThread.setName("concreteThread");
         // 启动线程，然后由JVM 调用此线程的 run() 方法
