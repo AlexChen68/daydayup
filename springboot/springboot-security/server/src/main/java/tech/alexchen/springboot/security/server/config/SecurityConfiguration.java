@@ -1,4 +1,4 @@
-package tech.alexchen.springboot.security.config;
+package tech.alexchen.springboot.security.server.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

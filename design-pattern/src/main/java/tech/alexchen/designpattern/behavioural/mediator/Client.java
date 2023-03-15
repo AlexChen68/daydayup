@@ -1,7 +1,5 @@
 package tech.alexchen.designpattern.behavioural.mediator;
 
-import java.util.concurrent.Executor;
-
 /**
  * @author alexchen
  * @date 2023/3/6

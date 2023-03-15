@@ -5,20 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>tech.alexchen</groupId>
-        <artifactId>springboot</artifactId>
+        <artifactId>springboot-security</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>springboot-security</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>client</module>
-        <module>server</module>
-    </modules>
+    <artifactId>client</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 </project>

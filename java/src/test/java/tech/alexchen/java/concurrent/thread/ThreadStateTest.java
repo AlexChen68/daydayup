@@ -1,4 +1,4 @@
-package tech.alexchen.java.concurrent;
+package tech.alexchen.java.concurrent.thread;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

@@ -42,12 +42,7 @@ public class Client {
         Thread runnableThread = new Thread(runnable, "runnableThread");
         runnableThread.start();
         // lambda 写法
-        Runnable lambdaRunnable = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(StrUtil.format("{}:{}", Thread.currentThread().getName(), Thread.currentThread().getId()));
-            }
-        };
+        Runnable lambdaRunnable = () -> System.out.println(StrUtil.format("{}:{}", Thread.currentThread().getName(), Thread.currentThread().getId()));
         Thread lambdaRunnableThread = new Thread(lambdaRunnable, "lambdaRunnableThread");
         lambdaRunnableThread.start();
     }
@@ -61,7 +56,4 @@ public class Client {
         System.out.println(task.get());
     }
 
-    public static void executorsTest() {
-        ExecutorService service = Executors.newCachedThreadPool();
-    }
 }
