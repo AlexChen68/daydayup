@@ -1,5 +1,7 @@
 package tech.alexchen.java.java8;
 
+import java.util.Scanner;
+
 /**
  * @author alexchen
  * @date 2023/2/22
@@ -7,5 +9,6 @@ package tech.alexchen.java.java8;
 public class StreamDemo {
 
     public static void main(String[] args) {
+
     }
 }

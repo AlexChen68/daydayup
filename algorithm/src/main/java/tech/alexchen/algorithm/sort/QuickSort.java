@@ -1,5 +1,7 @@
 package tech.alexchen.algorithm.sort;
 
+import cn.hutool.core.util.RandomUtil;
+
 import java.util.Arrays;
 
 /**
@@ -11,9 +13,10 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] a = new int[]{5,2,6,3,8,9,4,1,7};
-        sort(a);
-        System.out.println(Arrays.toString(a));
+        int[] ints = RandomUtil.randomInts(16);
+        System.out.println("Before: " + Arrays.toString(ints));
+        sort(ints);
+        System.out.println("After:  " + Arrays.toString(ints));
     }
 
     public static void sort(int[] a) {

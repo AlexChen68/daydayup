@@ -14,6 +14,7 @@
         <module>springboot-validation</module>
         <module>springboot-cache</module>
         <module>springboot-security</module>
+        <module>springboot-graphql</module>
     </modules>
     <packaging>pom</packaging>
 

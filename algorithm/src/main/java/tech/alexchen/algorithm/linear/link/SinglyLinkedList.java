@@ -1,7 +1,7 @@
 package tech.alexchen.algorithm.linear.link;
 
 /**
- * 单向链表（使用伪头节点和伪尾节点）
+ * 单向链表（使用伪头节点）
  *
  * @author AlexChen
  * @date 2022-07-15 01:26
