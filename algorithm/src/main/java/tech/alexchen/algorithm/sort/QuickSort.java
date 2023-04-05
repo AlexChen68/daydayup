@@ -35,8 +35,8 @@ public class QuickSort {
         }
         // 核心算法部分：分别介绍 双边指针（交换法），双边指针（挖坑法），单边指针
         int pivotIndex = doublePointerSwap(arr, startIndex, endIndex);
-//         int pivotIndex = doublePointerHole(arr, startIndex, endIndex);
-//         int pivotIndex = singlePointer(arr, startIndex, endIndex);
+//        int pivotIndex = doublePointerHole(arr, startIndex, endIndex);
+//        int pivotIndex = singlePointer(arr, startIndex, endIndex);
 
         // 用分界值下标区分出左右区间，进行递归调用
         sort(arr, startIndex, pivotIndex - 1);
