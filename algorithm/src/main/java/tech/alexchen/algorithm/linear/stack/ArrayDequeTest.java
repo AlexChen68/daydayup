@@ -16,6 +16,7 @@ public class ArrayDequeTest {
         stack.push("A");
         stack.push("B");
         stack.push("C");
+        stack.add("D");
         System.out.println(stack);
 
         // 不出栈
