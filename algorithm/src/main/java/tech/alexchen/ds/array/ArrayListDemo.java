@@ -2,15 +2,12 @@ package tech.alexchen.ds.array;
 
 import cn.hutool.core.util.RandomUtil;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author AlexChen
  */
-public class ArrayListTest {
+public class ArrayListDemo {
 
     public static void main(String[] args) {
         iteratorTest();
