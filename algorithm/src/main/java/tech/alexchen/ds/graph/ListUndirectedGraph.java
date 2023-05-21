@@ -104,7 +104,7 @@ public class ListUndirectedGraph {
         }
     }
 
-    private void BFS() {
+    public void BFS() {
         int head = 0;
         int rear = 0;
         int[] queue = new int[vertexNum];
