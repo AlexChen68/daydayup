@@ -8,5 +8,4 @@ import tech.alexchen.mysql.insertbatch.bean.Ecs;
  */
 public interface EcsService extends IService<Ecs> {
 
-
 }
