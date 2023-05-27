@@ -9,6 +9,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import tech.alexchen.mysql.insertbatch.bean.Ecs;
@@ -24,7 +27,6 @@ import java.util.List;
  * @author alexchen
  */
 @SpringBootTest
-// 使用spring的测试框架
 @ExtendWith(SpringExtension.class)
 class EcsServiceTest {
 
@@ -33,10 +35,6 @@ class EcsServiceTest {
 
     @Resource
     SqlSessionFactory sqlSessionFactory;
-
-    static final Long TOTAL = 50000L;
-
-    static final Integer BATCH_SIZE = 100000;
 
     Ecs buildEcs() {
         Ecs ecs = new Ecs();
@@ -49,57 +47,64 @@ class EcsServiceTest {
         ecs.setTenantId(RandomUtil.randomLong(10));
         return ecs;
     }
+
     @Test
     @Disabled
     void insertOne() {
         service.save(buildEcs());
     }
-    @Test
-    @Disabled
-    void insertForeach() {
+
+//    @Disabled
+    @ParameterizedTest
+    @ValueSource(ints = {1000, 5000, 10000})
+    void insertForeach(int total) {
         long start = System.currentTimeMillis();
-        for (int i = 0; i < TOTAL; i++) {
+        for (int i = 0; i < total; i++) {
             service.save(buildEcs());
         }
         long end = System.currentTimeMillis();
-        System.out.println(StrUtil.format("Insert end, cost time {} ms", end - start));
+        System.out.println(StrUtil.format("insertForeach: {}, cost time {} ms", total, end - start));
     }
 
-    @Test
-    void insertBatchDefault() {
-        List<Ecs> data = new ArrayList<>();
-        for (int i = 0; i < TOTAL; i++) {
-            data.add(buildEcs());
-        }
-        long start = System.currentTimeMillis();
-        service.saveBatch(data);
-        long end = System.currentTimeMillis();
-        System.out.println(StrUtil.format("Insert end, cost time {} ms", end - start));
-    }
-
-    @Test
-    void insertBatchCustom() {
-        List<Ecs> data = new ArrayList<>();
-        for (int i = 0; i < TOTAL; i++) {
-            data.add(buildEcs());
-        }
-        long start = System.currentTimeMillis();
-        service.saveBatch(data, BATCH_SIZE);
-        long end = System.currentTimeMillis();
-        System.out.println(StrUtil.format("Insert end, cost time {} ms", end - start));
-    }
-
-    @Test
-    void insertBatchForeach() {
-        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH,false);
+    @ParameterizedTest
+    @ValueSource(ints = {10000, 50000, 100000, 500000})
+    void insertForeachWithTransactional(int total) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH, false);
         EcsMapper mapper = sqlSession.getMapper(EcsMapper.class);
         long start = System.currentTimeMillis();
-        for (int i = 0; i < TOTAL; i++) {
+        for (int i = 0; i < total; i++) {
             mapper.insert(buildEcs());
         }
         sqlSession.commit();
         sqlSession.close();
         long end = System.currentTimeMillis();
-        System.out.println(StrUtil.format("Insert end, cost time {} ms", end - start));
+        System.out.println(StrUtil.format("insertBatchForeach: {}, cost time {} ms", total, end - start));
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {10000, 50000, 100000, 500000})
+    void insertBatchDefault(int total) {
+        List<Ecs> data = new ArrayList<>();
+        for (int i = 0; i < total; i++) {
+            data.add(buildEcs());
+        }
+        long start = System.currentTimeMillis();
+        service.saveBatch(data);
+        long end = System.currentTimeMillis();
+        System.out.println(StrUtil.format("insertBatchDefault: {}, cost time {} ms", total, end - start));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {10000, 50000, 100000, 500000})
+    void insertBatchCustom(int total) {
+        List<Ecs> data = new ArrayList<>();
+        for (int i = 0; i < total; i++) {
+            data.add(buildEcs());
+        }
+        long start = System.currentTimeMillis();
+        service.saveBatch(data, 500000);
+        long end = System.currentTimeMillis();
+        System.out.println(StrUtil.format("insertBatchCustom: {}, cost time {} ms", total, end - start));
+    }
+
 }
