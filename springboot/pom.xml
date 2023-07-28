@@ -13,6 +13,7 @@
         <module>springboot-swagger</module>
         <module>springboot-validation</module>
         <module>springboot-cache</module>
+        <module>springboot-springdoc</module>
         <module>springboot-security</module>
         <module>springboot-graphql</module>
         <module>springboot-docker</module>

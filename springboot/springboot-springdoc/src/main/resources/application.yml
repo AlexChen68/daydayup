@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+# 全部配置见 https://springdoc.org/#springdoc-openapi-core-properties
+springdoc:
+  swagger-ui:
+    display-request-duration: true
+    groups-order: DESC
+    operationsSorter: method
+    disable-swagger-default-url: true
+    use-root-path: true
+    path: /swagger-ui.html
