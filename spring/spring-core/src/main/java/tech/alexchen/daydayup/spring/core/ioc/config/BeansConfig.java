@@ -1,0 +1,43 @@
+package tech.alexchen.daydayup.spring.core.ioc.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import tech.alexchen.daydayup.spring.core.ioc.bean.SysDept;
+import tech.alexchen.daydayup.spring.core.ioc.bean.SysUser;
+import tech.alexchen.daydayup.spring.core.ioc.bean.SysUserDaoImpl;
+import tech.alexchen.daydayup.spring.core.ioc.bean.SysUserServiceImpl;
+
+/**
+ * Spring 配置 Bean 的方式二： java 代码配置
+ *
+ * @author alexchen
+ */
+@EnableAspectJAutoProxy
+@Configuration
+public class BeansConfig {
+
+    @Bean
+    public SysUser user() {
+        return new SysUser();
+    }
+
+    @Bean
+    public SysDept dept() {
+        return new SysDept();
+    }
+
+    @Bean("userDao")
+    public SysUserDaoImpl userDao() {
+        return new SysUserDaoImpl();
+    }
+
+    @Bean("userService")
+    public SysUserServiceImpl sysUserService() {
+        SysUserServiceImpl userService = new SysUserServiceImpl();
+        // 通过 setter 注入
+        userService.setUserDao(userDao());
+        return userService;
+    }
+
+}
