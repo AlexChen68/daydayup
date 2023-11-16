@@ -5,17 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tech.alexchen.daydayup</groupId>
-    <artifactId>mysql</artifactId>
+    <artifactId>graphql</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>mybatis</module>
-        <module>mybatis-spring</module>
-        <module>springboot-mysql-index</module>
-        <module>springboot-mysql-insert-batch</module>
-        <module>springboot-mysql-master-slave</module>
-        <module>springboot-mysql-sharding</module>
-        <module>springboot-mysql-transactional</module>
+        <module>springboot-graphql</module>
     </modules>
 </project>
